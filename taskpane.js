@@ -167,8 +167,8 @@ async function insertTextIntoDocument(text, contentControlTag) {
                     // Insert text into the first content control with this tag
                     contentControls.items[0].insertText(formattedText, "Replace");
                 } else {
-                    // If no content control found, insert at the beginning of the document
-                    context.document.body.insertParagraph(formattedText, "Start");
+                    // If no content control found, insert at the end of the document
+                    context.document.body.insertParagraph(formattedText, "End");
                 }
                 
                 await context.sync();
