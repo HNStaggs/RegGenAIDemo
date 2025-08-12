@@ -1,73 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RegGenAI Demo</title>
-
-    <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
-
-    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui -->
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
-
-    <!-- Template styles -->
-    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
 </head>
-
-<body class="ms-font-m ms-Fabric">
-    <div id="container">
-        <header class="ms-bgColor-themePrimary">
-            <h1 class="ms-font-xl ms-fontColor-white">RegGenAI Demo</h1>
-            <p class="ms-font-s ms-fontColor-white">AI-powered regulatory document generation</p>
-        </header>
-
-        <main>
-            <div class="section">
-                <h2 class="ms-font-l">Document Sections</h2>
-                <div class="button-group">
-                    <button id="btn-intro" class="ms-Button ms-Button--primary">
-                        <span class="ms-Button-label">Draft Introduction</span>
-                    </button>
-                    <button id="btn-objectives" class="ms-Button ms-Button--primary">
-                        <span class="ms-Button-label">Draft Study Objectives</span>
-                    </button>
-                    <button id="btn-methodology" class="ms-Button ms-Button--primary">
-                        <span class="ms-Button-label">Draft Methodology</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="ms-font-l">Document Info</h2>
-                <div class="info-card">
-                    <div class="info-item">
-                        <span class="label">Drug:</span>
-                        <span class="value">Crinetide</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Indication:</span>
-                        <span class="value">Congenital Adrenal Hyperplasia</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Phase:</span>
-                        <span class="value">Phase 2</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Region:</span>
-                        <span class="value">UK CTA</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="status" class="status-section" style="display: none;">
-                <div class="loading-spinner"></div>
-                <p id="status-text">Generating content...</p>
-            </div>
-        </main>
+<body>
+    <div class="container">
+        <h1>RegGenAI Demo</h1>
+        <p>AI-powered regulatory document generation for Word Add-ins</p>
+        <p>This is the landing page for your RegGenAI Static Web App. The actual Word Add-in interface is available through the taskpane.</p>
+        
+        <a href="taskpane.html" class="button">Open Taskpane Interface</a>
+        
+        <div class="status">
+            <strong>Status:</strong> Static Web App is running successfully
+        </div>
     </div>
-
-    <script type="text/javascript" src="taskpane.js"></script>
+    
+    <script>
+        // Auto-redirect after 3 seconds
+        setTimeout(() => {
+            window.location.href = 'taskpane.html';
+        }, 3000);
+    </script>
 </body>
-</html> 
+</html>
+
+
