@@ -1,10 +1,17 @@
 {
   "routes": [
     {
+      "route": "/",
+      "serve": "/taskpane.html"
+    },
+    {
       "route": "/*",
       "allowedRoles": ["anonymous"]
     }
   ],
+  "navigationFallback": {
+    "rewrite": "/taskpane.html"
+  },
   "responseOverrides": {
     "401": {
       "redirect": "/",
@@ -12,4 +19,5 @@
     }
   }
 }
+
 
