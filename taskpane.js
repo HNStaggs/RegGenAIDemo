@@ -154,6 +154,9 @@ async function insertTextIntoDocument(text, contentControlTag) {
     return new Promise((resolve, reject) => {
         Word.run(async (context) => {
             try {
+                // Convert \n to proper line breaks for Word
+                const formattedText = text.replace(/\\n/g, '\n');
+                
                 // Try to find the content control by tag
                 const contentControls = context.document.contentControls.getByTag(contentControlTag);
                 contentControls.load("items");
@@ -162,10 +165,10 @@ async function insertTextIntoDocument(text, contentControlTag) {
                 
                 if (contentControls.items.length > 0) {
                     // Insert text into the first content control with this tag
-                    contentControls.items[0].insertText(text, "Replace");
+                    contentControls.items[0].insertText(formattedText, "Replace");
                 } else {
                     // If no content control found, insert at the beginning of the document
-                    context.document.body.insertParagraph(text, "Start");
+                    context.document.body.insertParagraph(formattedText, "Start");
                 }
                 
                 await context.sync();
